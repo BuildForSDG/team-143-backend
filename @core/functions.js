@@ -53,10 +53,50 @@ const ordinalSuffixOf = function (i) {
     return i + "th";
 }
 
+const generateLandRecordNumber = () => {
+  var promise = new Promise(function(resolve, reject) {
+    landRecordNumber = Math.floor(Math.random() * 9000) + 10000;
+    getLandByLandRecordNumber(landRecordNumber).then(function(landRecord) {
+      if(landRecord){
+        generateLandRecordNumber;
+      }
+      resolve(landRecordNumber);
+    });
+  });
+  return promise;
+}
+
+const getLandByLandRecordNumber = (landRecordNumber) => {
+ var promise = new Promise(function(resolve, reject) {
+    models.land_model.findOne({landRecordNumber:landRecordNumber},function(err,data){
+      if(err){
+        reject(err);
+      }else{
+        resolve(data);          
+      }
+    });
+  });
+  return promise;
+}
+
+const findLandOwnerByIdNumber = (idNumber) => {
+ var promise = new Promise(function(resolve, reject) {
+    models.user_model.findOne({idNumber:idNumber},function(err,data){
+      if(err){
+        reject(err);
+      }else{
+        resolve(data);          
+      }
+    });
+  });
+  return promise;
+}
+
 module.exports = { 
   isEmpty,
   generateRandomString,
   formatDateTime,
   formatDate,
-  ordinalSuffixOf
+  ordinalSuffixOf,
+  findLandOwnerByIdNumber
 };
