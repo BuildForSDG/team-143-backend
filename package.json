@@ -1,0 +1,27 @@
+{
+  "name": "landRegistry",
+  "version": "1.0.0",
+  "description": "Land Registry API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team 143",
+  "license": "ISC",
+  "dependencies": {
+    "africastalking": "^0.4.5",
+    "body-parser": "^1.19.0",
+    "currency-formatter": "^1.5.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "google-libphonenumber": "^3.2.7",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^5.9.3",
+    "node-cron": "^2.0.3",
+    "request": "^2.88.2",
+    "ussd-menu-builder": "^1.2.0",
+    "validate-phone-number-node-js": "0.0.1"
+  }
+}
